@@ -4,6 +4,7 @@ namespace Infobank\Send\Omni;
 
 use Infobank\Core\Exceptions\InvalidMessageFlowException;
 use Infobank\Send\Omni\Alimtalk\AlimTalkMessage;
+use Infobank\Send\Omni\Alimtalk\BrandMessage;
 
 class MessageFlow implements \JsonSerializable
 {
@@ -11,6 +12,8 @@ class MessageFlow implements \JsonSerializable
     private $mms;
     private $rcs;
     private $alimtalk;
+    private $friendtalk;
+    private $brandmessage;
 
     public function __construct($message)
     {
@@ -22,6 +25,10 @@ class MessageFlow implements \JsonSerializable
             $this->rcs = $message;
         } elseif ($message instanceof AlimTalkMessage){
             $this->alimtalk = $message;
+        } elseif ($message instanceof FriendtalkMessage){
+            $this->friendtalk = $message;
+        } elseif ($message instanceof BrandMessage){
+            $this->brandmessage = $message;
         } else{
             throw new InvalidMessageFlowException("This type is not supported");
         }

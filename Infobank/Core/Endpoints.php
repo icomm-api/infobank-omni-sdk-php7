@@ -51,6 +51,12 @@ class Endpoints
         return "/v1/send/friendtalk";
     }
 
+    public function getSendBrandMessageEndpoint(): string
+    {
+        return "/v1/send/brandmessage";
+    }
+
+
     public function getSendOmniEndpoint(): string
     {
         return "/v1/send/omni";

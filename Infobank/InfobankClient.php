@@ -17,6 +17,7 @@ use Infobank\Regist\Form\MessageForm;
 use Infobank\Regist\ImgFile\ImageFile;
 use Infobank\Send\Inter\InterMessage;
 use Infobank\Send\Kko\AlimTalk\AlimTalkMessage;
+use Infobank\Send\Kko\BrandMessage\BrandMessage;
 use Infobank\Send\Kko\FriendTalk\FriendTalkMessage;
 use Infobank\Send\Mms\MmsMessage;
 use Infobank\Send\Omni\OmniMessage;
@@ -146,6 +147,8 @@ class InfobankClient
             $response =  $this->restClient->sendMessage($this->endpoints->getSendAlimtalkEndpoint(), $data);
         }elseif ($message instanceof FriendTalkMessage){
             $response =  $this->restClient->sendMessage($this->endpoints->getSendFriendtalkEndpoint(), $data);
+        }elseif ($message instanceof BrandMessage){
+            $response =  $this->restClient->sendMessage($this->endpoints->getSendBrandMessageEndpoint(), $data);    
         }elseif ($message instanceof OmniMessage){
             $response =  $this->restClient->sendMessage($this->endpoints->getSendOmniEndpoint(), $data);
         }else{

@@ -4,4 +4,4 @@
 /composer.lock
 /composer.phar
 /OmniSdkPhp7.iml
-
+/tests/

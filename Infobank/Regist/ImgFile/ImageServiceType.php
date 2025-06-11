@@ -12,6 +12,9 @@ class ImageServiceType extends ImageServiceTypeEnum
         switch($serviceType){
             case ImageServiceTypeEnum::MMS:
             case ImageServiceTypeEnum::RCS:
+            case ImageServiceTypeEnum::FRIENDTALK:
+            case ImageServiceTypeEnum::BRANDMESSAGE:
+
                 break;
             default:
                 throw new InvalidImageServiceType($serviceType . "is not supported");

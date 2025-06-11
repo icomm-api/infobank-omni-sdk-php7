@@ -2,8 +2,11 @@
 
 namespace Infobank\Send\Kko\AlimTalk;
 
+use Infobank\Core\Exceptions\InvalidKkoException;
+use Infobank\Send\Kko\FriendTalk\KkoMessageType;
 use Infobank\Send\Kko\KkoButton;
 use Infobank\Send\Kko\KkoFallback;
+use Infobank\Send\Kko\KkoMsgType;
 
 class AlimTalkMessage implements \JsonSerializable
 {
@@ -26,7 +29,7 @@ class AlimTalkMessage implements \JsonSerializable
      */
     public function __construct(string $senderKey, string $msgType, string $to, string $templateCode, string $text)
     {
-        AlimTalkMessageType::validMsgType($msgType);
+        KkoMsgType::validMsgType($msgType);
 
         $this->senderKey = $senderKey;
         $this->msgType = $msgType;

@@ -2,8 +2,10 @@
 
 namespace Infobank\Send\Kko\FriendTalk;
 
+use Infobank\Core\Exceptions\InvalidKkoException;
 use Infobank\Send\Kko\KkoButton;
 use Infobank\Send\kko\KkoFallback;
+use Infobank\Send\Kko\KkoMessageType;
 
 class FriendTalkMessage implements \JsonSerializable
 {
@@ -25,7 +27,7 @@ class FriendTalkMessage implements \JsonSerializable
      */
     public function __construct(string $senderKey, string $msgType, string $to, string $text)
     {
-        FriendTalkMessageType::validMsgType($msgType);
+        KkoMessageType::validMsgType($msgType);
 
         $this->senderKey = $senderKey;
         $this->msgType = $msgType;
